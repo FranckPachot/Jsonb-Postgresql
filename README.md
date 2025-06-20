@@ -34,16 +34,6 @@ Ensure the following tools are installed and available in your PATH. If not inst
     ```bash
     git --version
     ```
-- **psql client (optional)**
-  - To inspect PostgreSQL from host (outside Docker), install psql:
-    - PostgreSQL downloads: https://www.postgresql.org/download/
-    - Or use Docker’s psql via `docker exec`, so local install is optional.
-- **Mongo Shell (optional)**
-  - For inspecting MongoDB: https://www.mongodb.com/try/download/community
-  - Or use Docker’s `mongosh` via `docker exec`, so local install is optional.
-- **Environment**
-  - Windows, macOS, or Linux with internet access to download above tools.
-  - A terminal/PowerShell (on Windows) or bash/zsh (on macOS/Linux).
 
 ---
 - `cmd/main.go`: application entrypoint. Loads .env, connects to DBs, invokes benchmark or CRUD tests.
