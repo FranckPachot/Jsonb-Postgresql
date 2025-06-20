@@ -15,3 +15,21 @@ Running Mongo in a docker container
 Run the app
 
 1. go run main.go
+
+PS C:\Users\faizm\Desktop\Jsonb Postgresql> go run cmd/main.go
+✅ .env loaded
+✅ Connected and AutoMigrated PostgreSQL
+✅ Connected to PostgreSQL in 87.1631ms
+✅ Connected to MongoDB
+✅ Connected to MongoDB in 19.736ms
+🔗 Total DB connection setup time: 107.4083ms
+✅ Generated 100 dummy records for benchmarking
+📝 PostgreSQL Insert Time: 435.8252ms
+📝 MongoDB Insert Time: 2.5203ms
+🔍 PostgreSQL Read Time: 3.1459ms
+🔍 MongoDB Read Time: 3.7764ms
+✏️ PostgreSQL Update Time: 5.1816ms
+✏️ MongoDB Update Time: 3.2175ms
+🗑️ PostgreSQL Delete Time: 4.3106ms
+🗑️ MongoDB Delete Time: 2.6258ms
+🏁 Benchmark tests completed!
