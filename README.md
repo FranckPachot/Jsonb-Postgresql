@@ -28,12 +28,6 @@ Ensure the following tools are installed and available in your PATH. If not inst
     ```bash
     docker version
     ```
-- **Git**
-  - Download: https://git-scm.com/downloads
-  - Verify:
-    ```bash
-    git --version
-    ```
 
 ---
 - `cmd/main.go`: application entrypoint. Loads .env, connects to DBs, invokes benchmark or CRUD tests.
