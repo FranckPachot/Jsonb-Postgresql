@@ -1,0 +1,44 @@
+# .gitpod.yml (simplified version)  
+tasks:  
+  - name: Setup and Run  
+    init: |  
+      # Install dependencies  
+      go mod tidy  
+        
+    command: |  
+      # Start PostgreSQL  
+      docker run --name pg-json-test \  
+        -e POSTGRES_USER=postgres \  
+        -e POSTGRES_PASSWORD=pass \  
+        -e POSTGRES_DB=testdb \  
+        -p 5432:5432 \  
+        -d postgres  
+        
+      # Start MongoDB  
+      docker run --name mongo-json-test \  
+        -p 27017:27017 \  
+        -d mongo  
+        
+      # Wait for services  
+      echo "⏳ Waiting for databases to start..."  
+      sleep 15  
+        
+      echo "✅ Environment ready!"  
+      echo ""  
+      echo "🚀 Quick start commands:"  
+      echo "  go run cmd/main.go           # Run the benchmark"  
+      echo "  docker ps                    # Check running containers"  
+      echo ""  
+      echo "🔍 Database access:"  
+      echo "  docker exec -it pg-json-test psql -U postgres -d testdb"  
+      echo "  docker exec -it mongo-json-test mongosh"  
+  
+ports:  
+  - port: 5432  
+    onOpen: ignore  
+  - port: 27017  
+    onOpen: ignore  
+  
+vscode:  
+  extensions:  
+    - golang.go  
