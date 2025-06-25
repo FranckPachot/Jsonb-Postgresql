@@ -1,4 +1,4 @@
-# .gitpod.yml (simplified version)  
+# .gitpod.yml  
 tasks:  
   - name: Setup and Run  
     init: |  
@@ -6,23 +6,21 @@ tasks:
       go mod tidy  
         
     command: |  
-      # Start PostgreSQL  
-      docker run --name pg-json-test \  
-        -e POSTGRES_USER=postgres \  
-        -e POSTGRES_PASSWORD=pass \  
-        -e POSTGRES_DB=testdb \  
-        -p 5432:5432 \  
-        -d postgres  
+      # Start PostgreSQL (single line)  
+      docker run --name pg-json-test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=testdb -p 5432:5432 -d postgres  
         
-      # Start MongoDB  
-      docker run --name mongo-json-test \  
-        -p 27017:27017 \  
-        -d mongo  
+      # Start MongoDB (single line)  
+      docker run --name mongo-json-test -p 27017:27017 -d mongo  
         
       # Wait for services  
       echo "⏳ Waiting for databases to start..."  
       sleep 15  
         
+      # Check if containers are running  
+      echo "📋 Container status:"  
+      docker ps  
+        
+      echo ""  
       echo "✅ Environment ready!"  
       echo ""  
       echo "🚀 Quick start commands:"  
